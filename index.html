@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Presupuestos - Erica Avalos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1>Generador de Presupuestos</h1>
+                    <p>Erica Avalos - Gasista Matriculada & MMO</p>
+                </div>
+                <button id="toggleTheme" class="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Form Section -->
+            <section class="form-section">
+                <h2>Datos del Presupuesto</h2>
+
+                <!-- Client Data -->
+                <div class="form-group">
+                    <h3>Información del Cliente</h3>
+                    <div class="form-row">
+                        <input type="text" id="clientName" placeholder="Nombre del cliente" class="form-input">
+                        <input type="email" id="clientEmail" placeholder="Email" class="form-input">
+                    </div>
+                    <div class="form-row">
+                        <input type="tel" id="clientPhone" placeholder="Teléfono" class="form-input">
+                        <input type="text" id="clientAddress" placeholder="Dirección" class="form-input">
+                    </div>
+                </div>
+
+                <!-- Budget Details -->
+                <div class="form-group">
+                    <h3>Detalles del Presupuesto</h3>
+                    <div class="form-row">
+                        <input type="number" id="budgetNumber" placeholder="# Presupuesto" class="form-input" readonly>
+                        <input type="date" id="budgetDate" class="form-input">
+                        <input type="number" id="validDays" placeholder="Válido por (días)" class="form-input" value="30">
+                    </div>
+                </div>
+
+                <!-- Service Items -->
+                <div class="form-group">
+                    <h3>Servicios/Productos</h3>
+                    <div id="itemsContainer" class="items-container">
+                        <!-- Items will be added here -->
+                    </div>
+                    <button id="addItemBtn" class="btn btn-secondary">+ Agregar Item</button>
+                </div>
+
+                <!-- Payment Terms -->
+                <div class="form-group">
+                    <h3>Términos de Pago</h3>
+                    <textarea id="paymentTerms" class="form-input" placeholder="Condiciones de pago..." rows="3">50% al inicio, 50% al finalizar</textarea>
+                </div>
+
+                <!-- Additional Notes -->
+                <div class="form-group">
+                    <h3>Notas</h3>
+                    <textarea id="notes" class="form-input" placeholder="Notas adicionales..." rows="3"></textarea>
+                </div>
+
+                <!-- Actions -->
+                <div class="form-actions">
+                    <button id="previewBtn" class="btn btn-primary">👁️ Vista Previa</button>
+                    <button id="generateBtn" class="btn btn-success">📄 Descargar PDF</button>
+                    <button id="clearBtn" class="btn btn-secondary">🗑️ Limpiar</button>
+                </div>
+            </section>
+
+            <!-- Preview Section -->
+            <section id="previewSection" class="preview-section hidden">
+                <button id="closePreviewBtn" class="btn btn-secondary">Cerrar Vista Previa</button>
+                <div id="previewContent" class="preview-content"></div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Erica Avalos. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
